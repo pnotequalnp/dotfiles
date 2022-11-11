@@ -1,0 +1,93 @@
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet cmp  rctl
+)
+
+(deflayer colemak
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
+  @esc a    r    s    t    d    h    n    e    i    o    '    ret
+  lsft z    x    c    v    b    k    m    ,    .    /    rsft
+  @spc @acc lctl           spc            lmet rmet cmp  rctl
+)
+
+(deflayer qwerty
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @esc a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  @spc @acc lctl           spc            lmet rmet cmp  rctl
+)
+
+(deflayer special
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    @col _    _    @qwe _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+(deflayer accents
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    œ    _    _    _    _
+  _    æ    @cfx @grv @acu @dia _    _    _    _    _    _    _
+  _    _    _    ç    _    _    ñ    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+(deflayer acute
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    é    _    _    ý    ú    í    ó    _    _    _    _
+  _    á    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+  )
+
+(deflayer grave
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    è    _    _    ý    ù    ì    ò    _    _    _    _
+  _    à    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+(deflayer circumflex
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    ê    _    _    ŷ    û    î    ô    _    _    _    _
+  _    â    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    ĉ    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+(deflayer diaeresis
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    ë    _    _    ÿ    ü    ï    ö    _    _    _    _
+  _    ä    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+(defalias
+  esc (tap-next esc lalt)
+  acc (layer-toggle accents)
+  acu (around-next (layer-toggle acute))
+  grv (around-next (layer-toggle grave))
+  cfx (around-next (layer-toggle circumflex))
+  dia (around-next (layer-toggle diaeresis))
+  spc (layer-toggle special)
+  col (layer-switch colemak)
+  qwe (layer-switch qwerty)
+)
+
+#|
+(deflayer blank
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+|#
