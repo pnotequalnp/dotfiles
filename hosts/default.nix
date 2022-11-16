@@ -1,4 +1,4 @@
-inputs@{ nixpkgs, nixos-hardware, nur, hyprland, kmonad, home-manager, ... }:
+inputs@{ nixpkgs, nixos-hardware, nur, rust-overlay, hyprland, kmonad, home-manager, ... }:
 
 let
   inherit (nixpkgs.lib) nixosSystem;
@@ -19,10 +19,15 @@ let
         };
       in {
         _module.args = args;
+
+        nixpkgs.overlays = [
+          rust-overlay.overlays.default
+        ];
+
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          sharedModules = [ { _module.args = args; } ../user/base.nix ];
+          sharedModules = [ { _module.args = args; } ../user/base ];
         };
       })
   ];
@@ -32,7 +37,7 @@ let
     ../system/desktop.nix
     {
       home-manager.sharedModules =
-        [ hyprland.homeManagerModules.default ../user/desktop.nix ];
+        [ hyprland.homeManagerModules.default ../user/desktop ];
     }
   ];
 in {

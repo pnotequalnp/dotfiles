@@ -53,10 +53,7 @@ in
     "/var/lib/tailscale" = btrfsSubvol "tailscale" { neededForBoot = true; };
   };
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16384;
-  }];
+  swapDevices = [];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

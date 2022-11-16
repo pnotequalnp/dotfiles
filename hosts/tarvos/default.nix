@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [ ./hardware.nix ];
@@ -28,4 +28,15 @@
 
     upower.enable = true;
   };
+
+  systemd.services.muteLight = {
+    description = "Disable mute light";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${lib.getExe pkgs.light} -s sysfs/leds/platform::mute -S 0";
+    };
+  };
+
+  hardware.bluetooth.enable = true;
 }

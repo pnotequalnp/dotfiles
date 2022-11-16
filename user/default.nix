@@ -9,7 +9,10 @@ rec {
   };
 
   profiles = {
-    full = { imports = [ ]; };
+    full.imports = [
+      ./development/haskell.nix
+      ./development/rust.nix
+    ];
     minimal = { };
   };
 }

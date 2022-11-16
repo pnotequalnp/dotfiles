@@ -9,9 +9,11 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [ acpi curl git tmux neovim ];
+    systemPackages = with pkgs; [ acpi curl git vim ];
     etc."nix/flake-channels/nixpkgs".source = inputs.nixpkgs;
   };
+
+  documentation.nixos.enable = false;
 
   nix = {
     package = pkgs.nixUnstable;
@@ -19,7 +21,7 @@
     registry.nixpkgs.flake = inputs.nixpkgs;
 
     gc = {
-      automatic = false;
+      automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
@@ -30,7 +32,7 @@
       auto-optimise-store = true;
       keep-derivations = true;
       keep-outputs = true;
-      warn-dirty = true;
+      warn-dirty = false;
 
       trusted-users = [ "root" "@wheel" ];
       substituters = [ "https://nix-community.cachix.org" ];
@@ -40,22 +42,25 @@
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   users = {
-    mutableUsers = true;
+    mutableUsers = false;
 
     users.kevin = {
-      shell = pkgs.zsh;
+      shell = pkgs.nushell;
       isNormalUser = true;
       extraGroups =
-        [ "wheel" "networkmanager" "dialout" "docker" "vboxusers" "wireshark" ];
-      initialHashedPassword = "";
+        [ "wheel" "networkmanager" "dialout" "docker" "vboxusers" "wireshark" "video" ];
+      passwordFile = "${./password}";
     };
   };
 
   systemd = {
     targets.network-online.wantedBy = pkgs.lib.mkForce [ ];
+
     services.NetworkManager-wait-online.wantedBy = pkgs.lib.mkForce [ ];
-  };
+ };
 
   security.sudo.extraConfig = ''
     Defaults lecture = never

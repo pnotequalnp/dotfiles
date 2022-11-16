@@ -1,13 +1,7 @@
-{ config, lib, pkgs, nur, ... }:
+{config, pkgs, nur, ...}:
 
 {
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = "";
-  };
-
-  programs = {
-    firefox = {
+    programs.firefox = {
       enable = true;
       package = pkgs.firefox-wayland;
 
@@ -48,5 +42,4 @@
       };
 
     };
-  };
 }

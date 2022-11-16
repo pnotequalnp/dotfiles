@@ -1,5 +1,5 @@
 {
-  outputs = inputs@{ self, nixpkgs, ... }: {
+  outputs = inputs: {
     nixosConfigurations = import ./hosts inputs;
   };
 
@@ -7,6 +7,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/NUR";
+    rust-overlay.url = "github:oxalica/rust-overlay";
 
     kmonad = {
       url = "github:kmonad/kmonad?dir=nix";
@@ -25,6 +26,11 @@
 
     eww = {
       url = "github:elkowar/eww";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    helix = {
+      url = "github:SoraTenshi/helix/experimental";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
