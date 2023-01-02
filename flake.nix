@@ -30,7 +30,7 @@
     };
 
     helix = {
-      url = "github:SoraTenshi/helix/experimental";
+      url = "github:SoraTenshi/helix/experimental-22.12";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
