@@ -1,17 +1,22 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 
 let host = config.networking.hostName;
 in {
   programs = {
-    hyprland = {
-      enable = true;
-      package = null;
-    };
+    hyprland.enable = true;
 
     light.enable = true;
   };
-
+  
   services = {
+    greetd = {
+      enable = true;
+      vt = 2;
+      settings = {
+        default_session.command = "${lib.getExe pkgs.greetd.tuigreet} --cmd Hyprland";
+      };
+    };
+
     kmonad = {
       enable = true;
       keyboards.${host} = {

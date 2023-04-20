@@ -5,21 +5,20 @@
       enable = true;
       package = pkgs.firefox-wayland;
 
-      extensions = with nur.repos.rycee.firefox-addons; [
-        bitwarden
-        clearurls
-        darkreader
-        facebook-container
-        https-everywhere
-        i-dont-care-about-cookies
-        multi-account-containers
-        react-devtools
-        stylus
-        ublock-origin
-        vimium
-      ];
-
       profiles.${config.home.username} = {
+        extensions = with nur.repos.rycee.firefox-addons; [
+          bitwarden
+          clearurls
+          darkreader
+          facebook-container
+          i-dont-care-about-cookies
+          multi-account-containers
+          react-devtools
+          stylus
+          ublock-origin
+          vimium
+        ];
+
         settings = {
           "browser.newtabpage.activity-stream.feeds.section.highlights" = false;
           "browser.newtabpage.activity-stream.feeds.section.topstories" = false;

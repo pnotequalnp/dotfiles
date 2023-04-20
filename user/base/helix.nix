@@ -3,13 +3,15 @@
 {
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages.${pkgs.system}.default;
+    # package = inputs.helix.packages.${pkgs.system}.default;
 
     settings = {
       theme = "onedarker";
 
       editor = {
         line-number = "relative";
+
+        completion-replace = true;
 
         rulers = [100];
 
@@ -24,15 +26,48 @@
           rainbow = "dim";
         };
 
-        rainbow-brackets = true;
+        # rainbow-brackets = true;
        
-        whitespace.render.tab = "all";
+        whitespace = {
+          render = "all";
+          characters = {
+            space = "·";
+            nbsp = "⍽";
+            tab = "→";
+            newline = "⤶";
+          };
+       };
+
+        lsp = {
+          display-inlay-hints = true;
+        };
       };
     };
 
-    languages = [{
-      name = "nix";
-      language-server.command = lib.getExe inputs.nil.packages.${pkgs.system}.default;
-    }];
+    languages = [
+      {
+        name = "nix";
+        language-server.command = lib.getExe inputs.nil.packages.${pkgs.system}.default;
+      }
+      { name = "haskell";
+        config = {
+           haskell.formattingProvider = "fourmolu";
+        };
+      }
+      {
+        name = "cabal";
+        scope = "source.cabal";
+        injection-regex = "cabal";
+        file-types = ["cabal"];
+        roots = ["*.cabal"];
+        comment-token = "--";
+        language-server = { command = "haskell-language-server-wrapper"; args = ["--lsp"]; };
+        indent = { tab-width = 2; unit = "  "; };
+      }
+      {
+        name = "java";
+        language-server.command = lib.getExe pkgs.jdt-language-server;
+      }
+    ];
   };
 }

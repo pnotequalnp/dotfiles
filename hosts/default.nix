@@ -1,13 +1,13 @@
-inputs@{ nixpkgs, nixos-hardware, nur, rust-overlay, hyprland, kmonad, home-manager, ... }:
+inputs@{ nixpkgs, nixos-hardware, nur, rust-overlay, nix-colors, hyprland, kmonad, home-manager, sops-nix, ... }:
 
 let
   inherit (nixpkgs.lib) nixosSystem;
   inherit (import ../user) profile;
   hardware = nixos-hardware.nixosModules;
   sharedModules = [
+    sops-nix.nixosModules.sops
     home-manager.nixosModules.default
     ../system/base.nix
-    ../system/network.nix
     ({ pkgs, ... }:
       let
         args = {
@@ -35,9 +35,14 @@ let
     hyprland.nixosModules.default
     kmonad.nixosModules.default
     ../system/desktop.nix
+    ../system/network.nix
     {
-      home-manager.sharedModules =
-        [ hyprland.homeManagerModules.default ../user/desktop ];
+      home-manager.sharedModules = [
+        hyprland.homeManagerModules.default
+        nix-colors.homeManagerModules.default
+        { _module.args.colorSchemes = nix-colors.colorSchemes; }
+        ../user/desktop
+      ];
     }
   ];
 in {

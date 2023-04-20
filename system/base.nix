@@ -44,23 +44,36 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.fish.enable = true;
+
   users = {
     mutableUsers = false;
 
+    users.root.shell = pkgs.fish;
+
     users.kevin = {
-      shell = pkgs.nushell;
+      shell = pkgs.fish;
       isNormalUser = true;
       extraGroups =
         [ "wheel" "networkmanager" "dialout" "docker" "vboxusers" "wireshark" "video" ];
-      passwordFile = "${./password}";
+      passwordFile = config.sops.secrets.user_password.path;
     };
   };
 
-  systemd = {
-    targets.network-online.wantedBy = pkgs.lib.mkForce [ ];
 
-    services.NetworkManager-wait-online.wantedBy = pkgs.lib.mkForce [ ];
- };
+  sops = {
+    age = {
+      keyFile = "/var/lib/key.age";
+      sshKeyPaths = [];
+    };
+
+    gnupg.sshKeyPaths = [];
+
+    secrets.user_password = {
+      sopsFile = ./secrets.yaml;
+      neededForUsers = true;
+    };
+  };
 
   security.sudo.extraConfig = ''
     Defaults lecture = never

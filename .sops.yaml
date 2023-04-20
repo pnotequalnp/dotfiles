@@ -1,0 +1,17 @@
+keys:
+  - &admin 7001A2064E7CDE1477890ED3FA8C40D2CDAC5D1C
+  - &tarvos age1kslsqjhjyekyu8tfxcpt230fjtgd9w78q6nd57skz6grmzq75f6st5te48
+
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+    - pgp:
+      - *admin
+      age:
+      - *tarvos
+  - path_regex: hosts/tarvos/secrets.yaml$
+    key_groups:
+    - pgp:
+      - *admin
+      age:
+      - *tarvos

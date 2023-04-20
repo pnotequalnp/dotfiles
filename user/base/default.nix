@@ -1,10 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, lib, colorSchemes, ... }:
 
 {
+  imports = [
+    ./fish.nix
+    ./starship.nix
+    ./git.nix
+    ./helix.nix
+    ./neofetch.nix
+  ];
 
-  imports = [ ./nushell.nix ./starship.nix ./git.nix ./helix.nix ./neofetch.nix ];
-
-  home.packages = with pkgs; [ fd ripgrep ];
+  home.packages = with pkgs; [ fd ripgrep xdg-utils ];
+  
+  colorScheme = lib.mkDefault colorSchemes.dracula;
 
   programs = {
     direnv = {
@@ -29,6 +36,7 @@
 
     bat.enable = true;
     bottom.enable = true;
+    exa.enable = true;
   };
 
   services.gpg-agent = {
@@ -47,4 +55,18 @@
     };
   };
 
+  home.shellAliases = {
+    ll = "exa -lFT --group-directories-first --color=always --git --git-ignore --icons --level 1";
+    lla = "exa -laTF --group-directories-first --color=always --git --icons --level 1";
+    llt = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons";
+    llta = "exa -laTF --group-directories-first --color=always --git --icons";
+    ll2 = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons --level 2";
+    ll3 = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons --level 3";
+    ll4 = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons --level 4";
+    ll5 = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons --level 5";
+    ll2a = "exa -laTF --group-directories-first --color=always --git --icons --level 2";
+    ll3a = "exa -laTF --group-directories-first --color=always --git --icons --level 3";
+    ll4a = "exa -laTF --group-directories-first --color=always --git --icons --level 4";
+    ll5a = "exa -laTF --group-directories-first --color=always --git --icons --level 5";
+  };
 }

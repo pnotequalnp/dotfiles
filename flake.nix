@@ -8,6 +8,12 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/NUR";
     rust-overlay.url = "github:oxalica/rust-overlay";
+    nix-colors.url = "github:misterio77/nix-colors";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     kmonad = {
       url = "github:kmonad/kmonad?dir=nix";
@@ -30,7 +36,7 @@
     };
 
     helix = {
-      url = "github:SoraTenshi/helix/experimental";
+      url = "github:SoraTenshi/helix/new-daily-driver";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -1,7 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./hardware.nix ];
+  imports = [
+    ./hardware.nix
+    ../../system/development.nix
+  ];
 
   system.stateVersion = "20.03";
 
@@ -17,7 +20,14 @@
     efi.canTouchEfiVariables = true;
   };
 
+  sops.defaultSopsFile = ./secrets.yaml;
+
   services = {
+    greetd.settings.initial_session = {
+      command = "Hyprland";
+      user = "kevin";
+    };
+
     kmonad.keyboards.${config.networking.hostName}.device =
       "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
 
@@ -34,9 +44,17 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${lib.getExe pkgs.light} -s sysfs/leds/platform::mute -S 0";
+      ExecStart = ''
+        ${lib.getExe pkgs.light} -s sysfs/leds/platform::mute -S 0
+        ${lib.getExe pkgs.light} -s sysfs/leds/platform::micmute -S 0
+      '';
     };
   };
 
   hardware.bluetooth.enable = true;
+  
+  zramSwap = {
+    enable = lib.mkDefault true;
+    algorithm = "zstd";
+  };
 }

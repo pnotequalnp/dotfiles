@@ -7,10 +7,20 @@
     firewall.checkReversePath = "loose";
   };
 
+  sops.secrets.ssh_host_key = {};
+
   services = {
     openssh = {
       enable = true;
-      passwordAuthentication = false;
+
+      settings = {
+        PasswordAuthentication = false;
+      };
+
+      hostKeys = [{
+        path = config.sops.secrets."ssh_host_key".path;
+        type = "ed25519";
+      }];
     };
 
     tailscale.enable = true;

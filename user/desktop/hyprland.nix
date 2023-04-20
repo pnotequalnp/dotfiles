@@ -1,6 +1,8 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, config, ... }:
 
 let
+  inherit (config.colorScheme) colors;
+  rgb = c: "rgb(${c})";
   workspace = n: let
     key = builtins.toString (lib.mod (n + 1) 10);
     ws = builtins.toString (n + 1);
@@ -10,6 +12,9 @@ let
     bind = $mod SHIFT, ${key}, movetoworkspacesilent, ${ws}
     bind = $mod CTRL, ${key}, workspace, ${ws'}
     bind = $mod CTRL SHIFT, ${key}, movetoworkspacesilent, ${ws'}
+    
+    bind = $mod ALT, ${builtins.toString n}, focusmonitor, ${builtins.toString n}
+    bind = $mod CTRL ALT, ${builtins.toString n}, movecurrentworkspacetomonitor, ${builtins.toString n}
   '';
   workspaces = builtins.concatStringsSep "\n" (builtins.genList workspace 10) + ''
     bind = $mod, grave, togglespecialworkspace
@@ -31,11 +36,19 @@ in {
     extraConfig = ''
       $mod = SUPER
 
+      monitor = eDP-1, preferred, auto, 1
+
       general {
         gaps_in = 2
         gaps_out = 4
         cursor_inactive_timeout = 3
         no_cursor_warps = true
+        
+        col.inactive_border = ${rgb colors.base03}
+        col.active_border = ${rgb colors.base05}
+
+        col.group_border = ${rgb colors.base03}
+        col.group_border_active = ${rgb colors.base05}
       }
 
       input {
@@ -53,17 +66,25 @@ in {
 
       decoration {
         rounding = 4
-        
         blur_new_optimizations = 1
       }
 
       misc {
         disable_hyprland_logo = true
       }
+      
+      dwindle {
+        force_split = 2
+      }
 
       ${directions}
 
       ${workspaces}
+      
+      bind = $mod, backspace, togglefloating
+      bind = $mod, tab, togglegroup
+      bind = $mod, n, changegroupactive, b
+      bind = $mod, e, changegroupactive, f
 
       bind = $mod, space, exec, wofi -S drun
 
