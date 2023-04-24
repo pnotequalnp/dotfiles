@@ -9,7 +9,7 @@ let
 in {
   imports = [
     ./hyprland.nix
-    # ./eww.nix
+    ./eww.nix
     ./wofi.nix
     ./dunst.nix
     ./alacritty.nix
