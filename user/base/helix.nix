@@ -27,9 +27,14 @@
         };
 
         # rainbow-brackets = true;
-       
+
         whitespace = {
-          render = "all";
+          render = {
+            space = "none";
+            nbsp = "all";
+            tab = "all";
+            newline = "all";
+          };
           characters = {
             space = "·";
             nbsp = "⍽";
