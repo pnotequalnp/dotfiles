@@ -22,17 +22,19 @@ in {
     brightnessctl
     element-desktop
     gimp
+    grim
     imv
-    # obsidian
+    iosevka
     pavucontrol
     pinentry-gtk2
     slurp
-    grim
     wdisplays
     wl-clipboard
     wlr-randr
     zathura
   ];
+
+  fonts.fontconfig.enable = true;
 
   services = {
     batsignal.enable = true;

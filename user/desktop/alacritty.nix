@@ -7,6 +7,8 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
+      font.normal.family = "Iosevka";
+
       colors = {
         primary = {
           background = hash colors.base00;
