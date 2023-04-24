@@ -1,6 +1,8 @@
-{ pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
+  home.sessionVariables.EDITOR = lib.getExe config.programs.helix.package;
+
   programs.helix = {
     enable = true;
     # package = inputs.helix.packages.${pkgs.system}.default;
