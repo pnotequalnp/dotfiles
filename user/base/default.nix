@@ -11,7 +11,7 @@
 
   home.packages = with pkgs; [ fd ripgrep xdg-utils ];
   
-  colorScheme = lib.mkDefault colorSchemes.dracula;
+  colorScheme = lib.mkDefault colorSchemes.catppuccin-macchiato;
 
   programs = {
     direnv = {

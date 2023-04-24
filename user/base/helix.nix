@@ -6,7 +6,7 @@
     # package = inputs.helix.packages.${pkgs.system}.default;
 
     settings = {
-      theme = "onedarker";
+      theme = "catppuccin_macchiato";
 
       editor = {
         line-number = "relative";
