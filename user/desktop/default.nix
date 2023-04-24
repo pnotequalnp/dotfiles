@@ -25,6 +25,7 @@ in {
     grim
     imv
     iosevka
+    libnotify
     pavucontrol
     pinentry-gtk2
     slurp
@@ -35,6 +36,26 @@ in {
   ];
 
   fonts.fontconfig.enable = true;
+
+  home.pointerCursor = {
+    package = pkgs.nordzy-cursor-theme;
+    name = "Nordzy-cursors";
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Macchiato-Compact-Mauve-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["mauve"];
+        size = "compact";
+        variant = "macchiato";
+      };
+    };
+  };
 
   services = {
     batsignal.enable = true;
