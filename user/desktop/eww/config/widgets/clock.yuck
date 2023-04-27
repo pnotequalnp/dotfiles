@@ -1,0 +1,10 @@
+(defpoll time :interval "0.5s" `date +'{"date": "%d/%m", "hour": "%H", "minute": "%M", "second": "%S", "day": "%A"}'`)
+
+(defvar show_seconds false)
+
+(defwidget clock []
+  (eventbox :onhover "${EWW_CMD} update show_seconds=true" :onhoverlost "${EWW_CMD} update show_seconds=false"
+    (box :space-evenly false :halign "center"
+      (label :text "${time.hour}.${time.minute}")
+      (revealer :reveal show_seconds :transition "slideright"
+      (label :class "seconds" :text ".${time.second}")))))

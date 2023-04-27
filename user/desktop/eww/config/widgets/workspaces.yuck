@@ -1,0 +1,10 @@
+(deflisten all_workspaces "workspaces")
+
+(defwidget workspace_row [workspaces]
+  (box :class "ws-row"
+    (for ws in workspaces
+      (button :class "ws-button ${ws.active ? "active" : "inactive"}" :onclick "hyprctl dispatch workspace ${ws.id}" "●"))))
+
+(defwidget workspaces []
+  (box :orientation "vertical"
+    (workspace_row :workspaces {all_workspaces})))

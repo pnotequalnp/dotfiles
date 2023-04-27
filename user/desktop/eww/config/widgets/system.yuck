@@ -1,0 +1,12 @@
+(deflisten sysinfo "sysinfo 500")
+
+(defwidget system-meter [value label]
+  (circular-progress :class "system-meter" :value value :thickness 3 :start-at 75 :clockwise false
+      (button (label :text label))))
+
+(defwidget system []
+  (box
+    (system-meter :value {EWW_CPU.avg} :label "c")
+    (system-meter :value {EWW_RAM.used_mem_perc} :label "m")
+    (system-meter :value {sysinfo.temp.percent} :label "t" :style "color: ${sysinfo.temp.color}")
+    (system-meter :value {sysinfo.batteries[0].percent} :label "b" :style "color: ${sysinfo.batteries[0].color}")))

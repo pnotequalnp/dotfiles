@@ -4,11 +4,29 @@ let
   eww = lib.getExe config.programs.eww.package;
   inherit (config.colorScheme) colors;
   hash = c: "#${c}";
+  scripts = pkgs.rustPlatform.buildRustPackage {
+    pname = "scripts";
+    version = "0.1.0";
+    src = ./eww/scripts;
+    cargoLock.lockFile = ./eww/scripts/Cargo.lock;
+
+    CRITICAL_COLOR = hash colors.base08;
+    FULL_COLOR = hash colors.base0D;
+    CHARGING_COLOR= hash colors.base0A;
+    DISCHARGING_COLOR= hash colors.base08;
+    EMPTY_COLOR = hash colors.base02;
+    UNKNOWN_COLOR = hash colors.base02;
+  };
+  dependencies = with pkgs; [
+    config.wayland.windowManager.hyprland.package
+    scripts
+    coreutils
+  ];
 in {
   programs.eww = {
     enable = true;
     package = pkgs.eww-wayland;
-    configDir = ./eww;
+    configDir = ./eww/config;
   };
 
   xdg.configFile = {
@@ -43,6 +61,7 @@ in {
       Service = {
         ExecStart = "${eww} daemon --no-daemonize";
         Restart = "on-failure";
+        Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
       };
 
       Install.WantedBy = ["hyprland-session.target"];
