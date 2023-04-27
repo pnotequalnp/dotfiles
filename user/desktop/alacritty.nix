@@ -9,6 +9,11 @@ in {
     settings = {
       font.normal.family = "Iosevka";
 
+      window.padding = {
+        x = 6;
+        y = 6;
+      };
+
       colors = {
         primary = {
           background = hash colors.base00;
