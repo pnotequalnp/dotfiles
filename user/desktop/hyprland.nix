@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, config, ... }:
 
 let
   inherit (config.colorScheme) colors;
@@ -23,6 +23,7 @@ let
   direction = { key, dir }: ''
     bind = $mod, ${key}, movefocus, ${dir}
     bind = $mod SHIFT, ${key}, movewindow, ${dir}
+    bind = $mod CTRL, ${key}, moveintogroup, ${dir}
   '';
   directions = builtins.concatStringsSep "\n" (builtins.map direction [
     {key = "h"; dir = "l";}
@@ -82,9 +83,15 @@ in {
       ${workspaces}
       
       bind = $mod, backspace, togglefloating
+      bind = $mod SHIFT, backspace, centerwindow
+
       bind = $mod, tab, togglegroup
+      bind = $mod SHIFT, tab, moveoutofgroup
       bind = $mod, n, changegroupactive, b
       bind = $mod, e, changegroupactive, f
+
+      bind = $mod, f, fullscreen, 1
+      bind = $mod SHIFT, f, fullscreen, 0
 
       bind = $mod, space, exec, wofi -S drun
 
@@ -93,7 +100,7 @@ in {
 
       bind = $mod CTRL, escape, killactive,
 
-      bind = , Print, exec, slurp | grim -g - - | wl-copy -t image/png
+      bind = , Print, exec, slurp -c 00000000 | grim -g - - | wl-copy -t image/png
     '';
   };
 }
