@@ -29,6 +29,7 @@ in {
     pavucontrol
     pinentry-gtk2
     slurp
+    udiskie
     wdisplays
     wl-clipboard
     wlr-randr
@@ -59,6 +60,11 @@ in {
 
   services = {
     batsignal.enable = true;
+
+    udiskie = {
+      enable = true;
+      tray = "never";
+    };
     
     swayidle = {
       enable = true;
