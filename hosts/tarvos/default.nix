@@ -39,15 +39,15 @@
     upower.enable = true;
   };
 
-  systemd.services.muteLight = {
+  systemd.services.mute-light = {
     description = "Disable mute light";
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = ''
+      ExecStart = (pkgs.writeShellScript "mute-light" ''
         ${lib.getExe pkgs.light} -s sysfs/leds/platform::mute -S 0
         ${lib.getExe pkgs.light} -s sysfs/leds/platform::micmute -S 0
-      '';
+      '').outPath;
     };
   };
 
