@@ -20,6 +20,7 @@ rec {
       ./development/nix.nix
       ./development/ocaml.nix
       ./development/rust.nix
+      ./development/scala.nix
       ./development/zig.nix
     ];
     minimal = { };
