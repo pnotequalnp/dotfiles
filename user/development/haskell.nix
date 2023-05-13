@@ -31,6 +31,7 @@ let
     QuickCheck
     random
     recursion-schemes
+    selective
     semigroupoids
     text-short
     stm
