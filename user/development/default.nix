@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ insomnia scc ];
+  home.packages = with pkgs; [ hyperfine insomnia scc ];
 }
