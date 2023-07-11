@@ -33,12 +33,14 @@ let
     recursion-schemes
     selective
     semigroupoids
-    text-short
     stm
     template-haskell
     text
+    text-short
     text-show
+    th-abstraction
     transformers
+    twain
     unordered-containers
   ];
  in {
