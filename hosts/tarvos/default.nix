@@ -39,6 +39,8 @@
     upower.enable = true;
   };
 
+  programs.steam.enable = true;
+
   systemd.services.mute-light = {
     description = "Disable mute light";
     wantedBy = [ "multi-user.target" ];
