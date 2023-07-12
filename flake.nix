@@ -1,6 +1,13 @@
 {
   outputs = inputs: {
     nixosConfigurations = import ./hosts inputs;
+
+    devShells.x86_64-linux.default =
+      let
+        pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+      in pkgs.mkShell {
+        buildInputs = with pkgs; [age sops];
+      };
   };
 
   inputs = {
