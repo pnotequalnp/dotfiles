@@ -20,16 +20,19 @@ let
     bind = $mod, grave, togglespecialworkspace
     bind = $mod SHIFT, grave, movetoworkspace, special
   '';
-  direction = { key, dir }: ''
+  direction = { key, dir, resize }: ''
     bind = $mod, ${key}, movefocus, ${dir}
     bind = $mod SHIFT, ${key}, movewindow, ${dir}
     bind = $mod CTRL, ${key}, moveintogroup, ${dir}
+
+    bind = $mod ALT, ${key}, moveactive, ${resize}
+    bind = $mod CTRL SHIFT, ${key}, resizeactive, ${resize}
   '';
   directions = builtins.concatStringsSep "\n" (builtins.map direction [
-    {key = "h"; dir = "l";}
-    {key = "j"; dir = "d";}
-    {key = "k"; dir = "u";}
-    {key = "l"; dir = "r";}
+    {key = "h"; dir = "l"; resize = "-50 0";}
+    {key = "j"; dir = "d"; resize = "0 50";}
+    {key = "k"; dir = "u"; resize = "0 -50";}
+    {key = "l"; dir = "r"; resize = "50 0";}
   ]);
 in {
   wayland.windowManager.hyprland = {
@@ -84,6 +87,7 @@ in {
       
       bind = $mod, backspace, togglefloating
       bind = $mod SHIFT, backspace, centerwindow
+      bind = $mod CTRL, backspace, pin
 
       bind = $mod, tab, togglegroup
       bind = $mod SHIFT, tab, moveoutofgroup
