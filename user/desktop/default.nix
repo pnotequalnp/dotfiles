@@ -15,6 +15,7 @@ in {
     ./alacritty.nix
     ./firefox.nix
     ./discord.nix
+    ./zathura.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,7 +34,6 @@ in {
     wdisplays
     wl-clipboard
     wlr-randr
-    zathura
   ];
 
   fonts.fontconfig.enable = true;
