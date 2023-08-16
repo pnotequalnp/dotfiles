@@ -11,7 +11,11 @@
 
   home.packages = with pkgs; [ fd ripgrep xdg-utils ];
   
-  colorScheme = lib.mkDefault colorSchemes.catppuccin-macchiato;
+  colorScheme =
+    let
+      scheme = colorSchemes.catppuccin-macchiato;
+      hashedColors = lib.mapAttrs (_: color: "#${color}") scheme.colors;
+    in scheme // { inherit hashedColors; };
 
   programs = {
     direnv = {
