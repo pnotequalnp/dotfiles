@@ -1,8 +1,7 @@
 { config, ... }:
 
 let
-  inherit (config.colorScheme) colors;
-  hash = color: "#${color}";
+  colors = config.colorScheme.hashedColors;
 in {
   programs.wofi = {
     enable = true;
@@ -23,20 +22,20 @@ in {
       }
   
       #window {
-        background-color: ${hash colors.base01};
+        background-color: ${colors.base01};
       }
 
       #input {
-        background-color: ${hash colors.base01};
-        color: ${hash colors.base05}
+        background-color: ${colors.base01};
+        color: ${colors.base05}
       }
 
       #text {
-        color: ${hash colors.base05};
+        color: ${colors.base05};
       }
 
       #entry:selected {
-        background-color: ${hash colors.base02};
+        background-color: ${colors.base02};
       }
   '';
   };

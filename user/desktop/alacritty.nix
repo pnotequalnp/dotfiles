@@ -1,8 +1,7 @@
 { config, ... }:
 
 let
-  inherit (config.colorScheme) colors;
-  hash = color: "#${color}";
+  colors = config.colorScheme.hashedColors;
 in {
   programs.alacritty = {
     enable = true;
@@ -16,35 +15,35 @@ in {
 
       colors = {
         primary = {
-          background = hash colors.base00;
-          foreground = hash colors.base05;
+          background = colors.base00;
+          foreground = colors.base05;
         };
         
         cursor = {
-          text = hash colors.base00;
-          cursor = hash colors.base05;
+          text = colors.base00;
+          cursor = colors.base05;
         };
         
         normal = {
-          black = hash colors.base00;
-          red = hash colors.base08;
-          green = hash colors.base0B;
-          yellow = hash colors.base0A;
-          blue = hash colors.base0D;
-          magenta = hash colors.base0E;
-          cyan = hash colors.base0C;
-          white = hash colors.base05;
+          black = colors.base00;
+          red = colors.base08;
+          green = colors.base0B;
+          yellow = colors.base0A;
+          blue = colors.base0D;
+          magenta = colors.base0E;
+          cyan = colors.base0C;
+          white = colors.base05;
         };
 
         bright = {
-          black = hash colors.base03;
-          red = hash colors.base08;
-          green = hash colors.base0B;
-          yellow = hash colors.base0A;
-          blue = hash colors.base0D;
-          magenta = hash colors.base0E;
-          cyan = hash colors.base0C;
-          white = hash colors.base07;
+          black = colors.base03;
+          red = colors.base08;
+          green = colors.base0B;
+          yellow = colors.base0A;
+          blue = colors.base0D;
+          magenta = colors.base0E;
+          cyan = colors.base0C;
+          white = colors.base07;
         };
       };
     };

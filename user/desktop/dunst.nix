@@ -1,7 +1,6 @@
 { config, ... }:
 let
-  inherit (config.colorScheme) colors;
-  hash = color: "#${color}";
+  colors = config.colorScheme.hashedColors;
 in {
   services.dunst = {
     enable = true;
@@ -18,21 +17,21 @@ in {
       };
 
       urgency_critical = {
-        background = hash colors.base01;
-        foreground = hash colors.base05;
-        frame_color = hash colors.base08;
+        background = colors.base01;
+        foreground = colors.base05;
+        frame_color = colors.base08;
       };
 
       urgency_low = {
-        background = hash colors.base01;
-        foreground = hash colors.base05;
-        frame_color = hash colors.base0A;
+        background = colors.base01;
+        foreground = colors.base05;
+        frame_color = colors.base0A;
       };
 
       urgency_normal = {
-        background = hash colors.base01;
-        foreground = hash colors.base05;
-        frame_color = hash colors.base04;
+        background = colors.base01;
+        foreground = colors.base05;
+        frame_color = colors.base04;
       };
       };
   };
