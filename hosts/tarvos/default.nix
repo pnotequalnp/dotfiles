@@ -41,15 +41,18 @@
 
   programs.steam.enable = true;
 
-  systemd.services.mute-light = {
-    description = "Disable mute light";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = (pkgs.writeShellScript "mute-light" ''
-        ${lib.getExe pkgs.light} -s sysfs/leds/platform::mute -S 0
-        ${lib.getExe pkgs.light} -s sysfs/leds/platform::micmute -S 0
-      '').outPath;
+  systemd.services.mute-light =
+    let
+      light = lib.getExe' pkgs.light "light";
+    in {
+      description = "Disable mute light";
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = (pkgs.writeShellScript "mute-light" ''
+          ${light} -s sysfs/leds/platform::mute -S 0
+          ${light} -s sysfs/leds/platform::micmute -S 0
+        '').outPath;
     };
   };
 

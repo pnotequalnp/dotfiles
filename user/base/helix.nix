@@ -54,7 +54,7 @@
       language = [
         {
           name = "nix";
-          language-server.command = lib.getExe inputs.nil.packages.${pkgs.system}.default;
+          language-server.command = lib.getExe' inputs.nil.packages.${pkgs.system}.default "nil";
         }
         { name = "haskell";
           config = {
@@ -73,7 +73,7 @@
         }
         {
           name = "java";
-          language-server.command = lib.getExe pkgs.jdt-language-server;
+          language-server.command = lib.getExe' pkgs.jdt-language-server "jdt-language-server";
         }
       ];
     };

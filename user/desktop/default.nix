@@ -5,7 +5,7 @@ let
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
   systemctl = "${pkgs.systemd}/bin/systemctl";
   loginctl = "${pkgs.systemd}/bin/loginctl";
-  light = lib.getExe pkgs.light;
+  light = lib.getExe' pkgs.light "light";
 in {
   imports = [
     ./hyprland.nix
