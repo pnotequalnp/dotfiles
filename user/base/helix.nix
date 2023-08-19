@@ -50,30 +50,32 @@
       };
     };
 
-    languages = [
-      {
-        name = "nix";
-        language-server.command = lib.getExe inputs.nil.packages.${pkgs.system}.default;
-      }
-      { name = "haskell";
-        config = {
-           haskell.formattingProvider = "fourmolu";
-        };
-      }
-      {
-        name = "cabal";
-        scope = "source.cabal";
-        injection-regex = "cabal";
-        file-types = ["cabal"];
-        roots = ["*.cabal"];
-        comment-token = "--";
-        language-server = { command = "haskell-language-server-wrapper"; args = ["--lsp"]; };
-        indent = { tab-width = 2; unit = "  "; };
-      }
-      {
-        name = "java";
-        language-server.command = lib.getExe pkgs.jdt-language-server;
-      }
-    ];
+    languages = {
+      language = [
+        {
+          name = "nix";
+          language-server.command = lib.getExe inputs.nil.packages.${pkgs.system}.default;
+        }
+        { name = "haskell";
+          config = {
+             haskell.formattingProvider = "fourmolu";
+          };
+        }
+        {
+          name = "cabal";
+          scope = "source.cabal";
+          injection-regex = "cabal";
+          file-types = ["cabal"];
+          roots = ["*.cabal"];
+          comment-token = "--";
+          language-server = { command = "haskell-language-server-wrapper"; args = ["--lsp"]; };
+          indent = { tab-width = 2; unit = "  "; };
+        }
+        {
+          name = "java";
+          language-server.command = lib.getExe pkgs.jdt-language-server;
+        }
+      ];
+    };
   };
 }

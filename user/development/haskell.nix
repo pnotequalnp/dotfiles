@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  haskell = pkgs.haskell.packages.ghc92;
+  haskell = pkgs.haskell.packages.ghc94;
   packages = p: with p; [
     adjunctions
     aeson
@@ -40,14 +40,14 @@ let
     text-show
     th-abstraction
     transformers
-    twain
+    # twain
     unordered-containers
   ];
  in {
   home.packages = with haskell; [
     cabal-fmt
     cabal-install
-    cabal-plan
+    # cabal-plan
     fourmolu
     (ghcWithHoogle packages)
     haskell-language-server

@@ -70,7 +70,6 @@ in {
 
       decoration {
         rounding = 4
-        blur_new_optimizations = 1
       }
 
       misc {
