@@ -74,6 +74,7 @@ in {
 
       misc {
         disable_hyprland_logo = true
+        render_titles_in_groupbar = false
       }
       
       dwindle {
