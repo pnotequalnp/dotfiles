@@ -22,6 +22,7 @@ let
     kan-extensions
     lens
     megaparsec
+    mono-traversable
     mtl
     parser-combinators
     pretty-simple
