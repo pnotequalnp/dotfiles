@@ -9,7 +9,14 @@
     ./neofetch.nix
   ];
 
-  home.packages = with pkgs; [ fd ripgrep xdg-utils ];
+  home.packages = with pkgs; [
+    fd
+    file
+    ripgrep
+    unzip
+    xdg-utils
+    zip
+  ];
   
   colorScheme =
     let
