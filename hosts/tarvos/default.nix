@@ -39,7 +39,10 @@
     upower.enable = true;
   };
 
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    package = pkgs.steam.override { extraPkgs = p: with p; [ openssl ]; };
+  };
 
   systemd.services.mute-light =
     let
