@@ -50,9 +50,6 @@ in {
         
         col.inactive_border = ${rgb colors.base03}
         col.active_border = ${rgb colors.base05}
-
-        col.group_border = ${rgb colors.base03}
-        col.group_border_active = ${rgb colors.base05}
       }
 
       input {
@@ -69,13 +66,23 @@ in {
         workspace_back_and_forth = true
       }
 
+      group {
+        col.border_active = ${rgb colors.base05}
+        col.border_inactive = ${rgb colors.base03}
+
+        groupbar {
+          render_titles = false
+          col.active = ${rgb colors.base05}
+          col.inactive = ${rgb colors.base03}
+        }
+      }
+
       decoration {
         rounding = 4
       }
 
       misc {
         disable_hyprland_logo = true
-        render_titles_in_groupbar = false
       }
       
       dwindle {
