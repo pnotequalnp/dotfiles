@@ -27,8 +27,6 @@
           rainbow = "dim";
         };
 
-        # rainbow-brackets = true;
-
         whitespace = {
           render = {
             space = "none";
@@ -53,29 +51,20 @@
     languages = {
       language = [
         {
-          name = "nix";
-          language-server.command = lib.getExe' inputs.nil.packages.${pkgs.system}.default "nil";
-        }
-        { name = "haskell";
-          config = {
-             haskell.formattingProvider = "fourmolu";
-          };
-        }
-        {
           name = "cabal";
           scope = "source.cabal";
           injection-regex = "cabal";
           file-types = ["cabal"];
           roots = ["*.cabal"];
           comment-token = "--";
-          language-server = { command = "haskell-language-server-wrapper"; args = ["--lsp"]; };
+          language-servers = [ "haskell-language-server-wrapper" ];
           indent = { tab-width = 2; unit = "  "; };
         }
-        {
-          name = "java";
-          language-server.command = lib.getExe' pkgs.jdt-language-server "jdt-language-server";
-        }
       ];
+
+      language-server = {
+          haskell-language-server.config.haskell.formattingProvider = "fourmolu";
+      };
     };
   };
 }
