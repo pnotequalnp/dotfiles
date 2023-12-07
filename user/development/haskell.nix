@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  haskell = pkgs.haskell.packages.ghc94;
+  haskell = pkgs.haskell.packages.ghc96;
   packages = p: with p; [
     adjunctions
     aeson
