@@ -53,7 +53,7 @@
 
     bat.enable = true;
     bottom.enable = true;
-    exa.enable = true;
+    eza.enable = true;
     jq.enable = true;
   };
 
@@ -74,17 +74,17 @@
   };
 
   home.shellAliases = {
-    ll = "exa -lFT --group-directories-first --color=always --git --git-ignore --icons --level 1";
-    lla = "exa -laTF --group-directories-first --color=always --git --icons --level 1";
-    llt = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons";
-    llta = "exa -laTF --group-directories-first --color=always --git --icons";
-    ll2 = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons --level 2";
-    ll3 = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons --level 3";
-    ll4 = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons --level 4";
-    ll5 = "exa -lTF --group-directories-first --color=always --git --git-ignore --icons --level 5";
-    ll2a = "exa -laTF --group-directories-first --color=always --git --icons --level 2";
-    ll3a = "exa -laTF --group-directories-first --color=always --git --icons --level 3";
-    ll4a = "exa -laTF --group-directories-first --color=always --git --icons --level 4";
-    ll5a = "exa -laTF --group-directories-first --color=always --git --icons --level 5";
+    ll = "eza -lFT --group-directories-first --color=always --git --git-ignore --icons --level 1";
+    lla = "eza -laTF --group-directories-first --color=always --git --icons --level 1";
+    llt = "eza -lTF --group-directories-first --color=always --git --git-ignore --icons";
+    llta = "eza -laTF --group-directories-first --color=always --git --icons";
+    ll2 = "eza -lTF --group-directories-first --color=always --git --git-ignore --icons --level 2";
+    ll3 = "eza -lTF --group-directories-first --color=always --git --git-ignore --icons --level 3";
+    ll4 = "eza -lTF --group-directories-first --color=always --git --git-ignore --icons --level 4";
+    ll5 = "eza -lTF --group-directories-first --color=always --git --git-ignore --icons --level 5";
+    ll2a = "eza -laTF --group-directories-first --color=always --git --icons --level 2";
+    ll3a = "eza -laTF --group-directories-first --color=always --git --icons --level 3";
+    ll4a = "eza -laTF --group-directories-first --color=always --git --icons --level 4";
+    ll5a = "eza -laTF --group-directories-first --color=always --git --icons --level 5";
   };
 }
