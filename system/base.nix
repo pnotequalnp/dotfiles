@@ -56,7 +56,7 @@
       isNormalUser = true;
       extraGroups =
         [ "wheel" "networkmanager" "dialout" "docker" "vboxusers" "wireshark" "video" ];
-      passwordFile = config.sops.secrets.user_password.path;
+      hashedPasswordFile = config.sops.secrets.user_password.path;
     };
   };
 
