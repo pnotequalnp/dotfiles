@@ -44,6 +44,10 @@
     package = pkgs.steam.override { extraPkgs = p: with p; [ openssl ]; };
   };
 
+  home-manager.users.kevin = {
+    home.packages = [ pkgs.audacity ];
+  };
+
   systemd.services.mute-light =
     let
       light = lib.getExe' pkgs.light "light";
