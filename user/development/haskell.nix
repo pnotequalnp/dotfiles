@@ -58,16 +58,18 @@ let
 
   home.file = {
     ".ghc/ghci.conf".text = ''
+      :set +m
       :set prompt "\ESC[1;34m%s\n\ESC[0;38;5;38mλ \ESC[m> "
       :set prompt-cont "  | "
       :set -XNoStarIsType
       :set -Wno-unused-top-binds
-      :set +m
-
-      :seti -Wall -Wno-type-defaults -Wno-name-shadowing
-      :seti -fno-defer-type-errors -fno-show-valid-hole-fits
       :set -package pretty-simple
+
+      :seti -XPartialTypeSignatures -XNamedWildCards
       :seti -interactive-print=Text.Pretty.Simple.pPrint
+      :seti -Wall -Wcompat -Widentities -Wredundant-constraints
+      :seti -Wno-partial-type-signatures -Wno-type-defaults -Wno-name-shadowing
+      :seti -fno-defer-type-errors -fno-show-valid-hole-fits
     '';
     ".haskeline".text = "editMode: Vi";
   };
