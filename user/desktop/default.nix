@@ -27,6 +27,7 @@ in {
     imv
     iosevka
     libnotify
+    mpv
     pavucontrol
     pinentry-gtk2
     slurp

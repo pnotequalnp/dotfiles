@@ -10,11 +10,17 @@
   ];
 
   home.packages = with pkgs; [
+    delta
+    dogdns
+    duf
     fd
     file
+    gping
+    procs
     ripgrep
     unzip
     xdg-utils
+    xh
     zip
   ];
   
@@ -48,6 +54,7 @@
     bat.enable = true;
     bottom.enable = true;
     exa.enable = true;
+    jq.enable = true;
   };
 
   services.gpg-agent = {
