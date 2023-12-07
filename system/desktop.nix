@@ -26,6 +26,7 @@ in {
           enable = true;
           fallthrough = true;
           allowCommands = true;
+          compose.key = "compose";
         };
       };
     };

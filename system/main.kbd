@@ -11,56 +11,21 @@
   tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
   @esc a    r    s    t    d    h    n    e    i    o    '    ret
   lsft z    x    c    v    b    k    m    ,    .    /    rsft
-  lalt @acc lctl           spc            lmet rmet cmp  rctl
+  lmet @acc lctl           spc            lmet rmet cmp  rctl
 )
 
 (deflayer accents
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    œ    _    _    _    _
-  _    æ    @cfx @grv @acu @dia _    _    _    _    _    _    _
-  _    _    _    ç    _    _    ñ    _    _    _    _    _
+  +`   _    _    _    _    _    +^   _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    «    »    _
+  _    æ    _    _    _    _    _    _    _    _    œ    +'   _
+  _    _    _    _    _    _    _    _    +,   _    _    _
   _    _    _              _              _    _    _    _
 )
 
-(deflayer acute
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    é    _    _    ý    ú    í    ó    _    _    _    _
-  _    á    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _    _
-  )
-
-(deflayer grave
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    è    _    _    ý    ù    ì    ò    _    _    _    _
-  _    à    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _    _
-)
-
-(deflayer circumflex
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    ê    _    _    ŷ    û    î    ô    _    _    _    _
-  _    â    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    ĉ    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _    _
-)
-
-(deflayer diaeresis
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    ë    _    _    ÿ    ü    ï    ö    _    _    _    _
-  _    ä    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _    _
-)
 
 (defalias
   esc (tap-next esc lalt)
   acc (layer-toggle accents)
-  acu (around-next (layer-toggle acute))
-  grv (around-next (layer-toggle grave))
-  cfx (around-next (layer-toggle circumflex))
-  dia (around-next (layer-toggle diaeresis))
   col (layer-switch colemak)
 )
 

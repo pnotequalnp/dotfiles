@@ -62,6 +62,7 @@ in {
         touchpad {
           natural_scroll = true
         }
+        kb_options = compose:menu
       }
 
       binds {
