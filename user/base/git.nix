@@ -25,5 +25,7 @@
       signByDefault = true;
       key = "3FE1845783ADA7CB";
     };
+
+    delta.enable = true;
   };
 }
