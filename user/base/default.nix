@@ -15,6 +15,8 @@
     fd
     file
     gping
+    nix-output-monitor
+    nix-tree
     procs
     ripgrep
     unzip
