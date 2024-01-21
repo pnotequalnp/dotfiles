@@ -72,6 +72,8 @@ in {
 
         groupbar {
           render_titles = false
+          scrolling = false
+          height = 0
           col.active = ${rgb colors.base05}
           col.inactive = ${rgb colors.base03}
         }
