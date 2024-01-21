@@ -29,7 +29,6 @@ in {
     libnotify
     mpv
     pavucontrol
-    pinentry-gtk2
     slurp
     udiskie
     wdisplays
