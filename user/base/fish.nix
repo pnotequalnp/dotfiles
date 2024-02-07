@@ -8,4 +8,9 @@
       bind -k nul -M insert 'accept-autosuggestion'
     '';
   };
+
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }
