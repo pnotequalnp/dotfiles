@@ -76,7 +76,7 @@
   };
 
   home.shellAliases = {
-    ll = "eza -lFT --group-directories-first --color=always --git --git-ignore --icons --level 1";
+    ll = "eza -lTF --group-directories-first --color=always --git --git-ignore --icons --level 1";
     lla = "eza -laTF --group-directories-first --color=always --git --icons --level 1";
     llt = "eza -lTF --group-directories-first --color=always --git --git-ignore --icons";
     llta = "eza -laTF --group-directories-first --color=always --git --icons";
