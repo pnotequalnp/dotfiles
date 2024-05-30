@@ -28,7 +28,7 @@
   colorScheme =
     let
       scheme = colorSchemes.catppuccin-macchiato;
-      hashedColors = lib.mapAttrs (_: color: "#${color}") scheme.colors;
+      hashedColors = lib.mapAttrs (_: color: "#${color}") scheme.palette;
     in scheme // { inherit hashedColors; };
 
   programs = {
@@ -61,7 +61,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryFlavor = "gtk2";
+    pinentryPackage = pkgs.pinentry-gtk2;
   };
 
   xdg = {

@@ -16,7 +16,7 @@
   documentation.nixos.enable = false;
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.latest;
 
     registry.nixpkgs.flake = inputs.nixpkgs;
 

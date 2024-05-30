@@ -1,7 +1,8 @@
 { lib, config, ... }:
 
 let
-  inherit (config.colorScheme) colors;
+  colors = config.colorScheme.palette;
+  # inherit (config.colorScheme) colors;
   rgb = c: "rgb(${c})";
   workspace = n: let
     key = builtins.toString (lib.mod (n + 1) 10);
@@ -45,8 +46,6 @@ in {
       general {
         gaps_in = 2
         gaps_out = 4
-        cursor_inactive_timeout = 3
-        no_cursor_warps = true
         
         col.inactive_border = ${rgb colors.base03}
         col.active_border = ${rgb colors.base05}

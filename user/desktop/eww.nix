@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   eww = lib.getExe config.programs.eww.package;
@@ -6,7 +6,6 @@ let
 in {
   programs.eww = {
     enable = true;
-    package = pkgs.eww-wayland;
     configDir = ./eww;
   };
 
