@@ -19,6 +19,7 @@ in {
   ];
 
   home.packages = with pkgs; [
+    anki
     bitwarden
     brightnessctl
     element-desktop
