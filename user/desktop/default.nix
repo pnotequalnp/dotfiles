@@ -29,11 +29,14 @@ in {
     libnotify
     mpv
     pavucontrol
+    rquickshare
     slurp
     udiskie
     wdisplays
     wl-clipboard
     wlr-randr
+    yubikey-manager-qt
+    yubioath-flutter
   ];
 
   fonts.fontconfig.enable = true;
