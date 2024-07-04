@@ -29,6 +29,7 @@ in {
     iosevka
     libnotify
     mpv
+    obsidian
     pavucontrol
     rquickshare
     slurp
