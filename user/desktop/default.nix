@@ -54,7 +54,7 @@ in {
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Macchiato-Compact-Mauve-Dark";
+      name = "catppuccin-macchiato-mauve-compact+default";
       package = pkgs.catppuccin-gtk.override {
         accents = ["mauve"];
         size = "compact";
