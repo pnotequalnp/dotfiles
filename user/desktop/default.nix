@@ -23,6 +23,7 @@ in {
     bitwarden
     brightnessctl
     element-desktop
+    foliate
     gimp
     grim
     imv
