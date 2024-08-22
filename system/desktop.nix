@@ -56,4 +56,10 @@ in {
   };
 
   xdg.portal.config.common.default = "*";
+
+  fonts = {
+    packages = with pkgs; [
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    ];
+  };
 }
