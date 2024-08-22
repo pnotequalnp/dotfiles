@@ -21,6 +21,7 @@ in {
   home.packages = with pkgs; [
     anki
     bitwarden
+    blueman
     brightnessctl
     element-desktop
     foliate
