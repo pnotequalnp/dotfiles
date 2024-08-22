@@ -12,8 +12,8 @@ in {
       allow_markup = true;
       no_actions = true;
       prompt = "";
-      key_up = "Control_L-p";
-      key_down = "Control_L-n";
+      key_up = "Ctrl-p";
+      key_down = "Ctrl-n";
     };
 
     style = ''
