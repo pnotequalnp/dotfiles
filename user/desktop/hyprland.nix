@@ -88,6 +88,7 @@ in {
       
       dwindle {
         force_split = 2
+        no_gaps_when_only = 1
       }
 
       ${directions}
