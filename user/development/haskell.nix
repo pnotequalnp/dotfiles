@@ -15,7 +15,6 @@ let
     criterion
     data-fix
     distributive
-    effectful
     exceptions
     free
     foldl
@@ -32,6 +31,7 @@ let
     QuickCheck
     random
     recursion-schemes
+    reflection
     selective
     semigroupoids
     stm
@@ -41,14 +41,13 @@ let
     text-show
     th-abstraction
     transformers
-    # twain
     unordered-containers
   ];
  in {
   home.packages = with haskell; [
     cabal-fmt
     cabal-install
-    # cabal-plan
+    cabal-plan
     fourmolu
     (ghcWithHoogle packages)
     haskell-language-server
