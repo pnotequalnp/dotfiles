@@ -28,7 +28,7 @@ in {
     gimp
     grim
     imv
-    iosevka
+    (iosevka.override { privateBuildPlan = "${./iosevka.toml}"; set = "Arc"; })
     libnotify
     mpv
     obsidian

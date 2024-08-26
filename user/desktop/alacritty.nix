@@ -6,7 +6,15 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      font.normal.family = "Iosevka";
+      font = {
+        offset = {
+          x = -1;
+        };
+        normal = {
+          family = "Iosevka Arc";
+          style = "Light Semi-Condensed";
+        };
+      };
 
       window.padding = {
         x = 6;

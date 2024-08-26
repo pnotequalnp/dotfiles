@@ -1,0 +1,92 @@
+[buildPlans.IosevkaArc]
+family = "Iosevka Arc"
+spacing = "term"
+serifs = "sans"
+noCvSs = true
+exportGlyphNames = false
+
+[buildPlans.IosevkaArc.variants.design]
+six = "open-contour"
+seven = "bend-serifed"
+eight = "crossing"
+nine = "open-contour"
+zero = "slashed"
+capital-c = "serifless"
+capital-q = "crossing"
+capital-u = "toothed-bottom-right-serifed"
+capital-y = "straight-serifless"
+capital-z = "straight-serifless"
+a = "single-storey-serifless"
+i = "hooky-bottom"
+j = "serifless"
+l = "flat-tailed"
+p = "earless-corner-serifless"
+q = "earless-corner-straight-serifless"
+r = "serifless"
+t = "flat-hook"
+x = "semi-chancery-straight-serifless"
+y = "cursive-serifless"
+capital-eszet = "flat-top-serifless"
+lower-eth = "curly-bar"
+lower-thorn = "serifless"
+capital-delta = "straight"
+lower-delta = "flat-top"
+lower-iota = "hooky-bottom"
+lower-lambda = "tailed-turn"
+lower-chi = "straight-bilateral-motion-serifed"
+lower-psi = "flat-top-serifed"
+percent = "rings-continuous-slash"
+lig-ltgteq = "slanted"
+lig-equal-chain = "without-notch"
+lig-hyphen-chain = "without-notch"
+lig-plus-chain = "without-notch"
+lig-double-arrow-bar = "without-notch"
+lig-single-arrow-bar = "without-notch"
+
+[buildPlans.IosevkaArc.ligations]
+inherits = "idris"
+
+[buildPlans.IosevkaArc.weights.ExtraLight]
+shape = 200
+menu = 200
+css = 200
+
+[buildPlans.IosevkaArc.weights.Light]
+shape = 300
+menu = 300
+css = 300
+
+[buildPlans.IosevkaArc.weights.Regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.IosevkaArc.weights.Medium]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.IosevkaArc.weights.Bold]
+shape = 700
+menu = 700
+css = 700
+
+[buildPlans.IosevkaArc.weights.Heavy]
+shape = 900
+menu = 900
+css = 900
+
+[buildPlans.IosevkaArc.widths.Normal]
+shape = 500
+menu = 5
+css = "normal"
+
+[buildPlans.IosevkaArc.widths.Condensed]
+shape = 416
+menu = 3
+css = "condensed"
+
+[buildPlans.IosevkaArc.widths.SemiCondensed]
+shape = 456
+menu = 4
+css = "semi-condensed"
