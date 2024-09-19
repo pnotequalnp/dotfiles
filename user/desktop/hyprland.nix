@@ -2,7 +2,6 @@
 
 let
   colors = config.colorScheme.palette;
-  # inherit (config.colorScheme) colors;
   rgb = c: "rgb(${c})";
   workspace = n: let
     key = builtins.toString (lib.mod (n + 1) 10);

@@ -31,6 +31,8 @@ in {
     (iosevka.override { privateBuildPlan = "${./iosevka.toml}"; set = "Arc"; })
     libnotify
     mpv
+    networkmanagerapplet
+    noto-fonts-emoji
     obsidian
     pavucontrol
     rquickshare

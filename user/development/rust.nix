@@ -11,4 +11,6 @@ in {
     pkgs.cargo-asm
     pkgs.cargo-flamegraph
   ];
+
+  programs.vscode.extensions = [ pkgs.vscode-extensions.rust-lang.rust-analyzer ];
 }

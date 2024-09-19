@@ -6,4 +6,6 @@
     pkgs.clang-tools
     pkgs.valgrind
   ];
+
+  programs.vscode.extensions = [ pkgs.vscode-extensions.ms-vscode.cpptools ];
 }

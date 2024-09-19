@@ -75,4 +75,6 @@ let
 
   home.sessionVariables.CABAL_DIR = "${config.xdg.dataHome}/cabal";
   home.sessionPath = ["${config.xdg.dataHome}/cabal/bin"];
+
+  programs.vscode.extensions = [ pkgs.vscode-extensions.haskell.haskell ];
 }
