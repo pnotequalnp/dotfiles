@@ -39,6 +39,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ashell = {
+      type = "git";
+      url = "https://github.com/MalpenZibo/ashell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nil = {
       url = "github:oxalica/nil";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -33,6 +33,29 @@
         "type": "github"
       }
     },
+    "ashell": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "naersk": "naersk",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1726339188,
+        "narHash": "sha256-4tDpiG5XK5xvuX79VAY3WYaL9LNx4MYZGmSz916oJRE=",
+        "ref": "refs/heads/main",
+        "rev": "94f3962db6bebaef493b7c2c55875ac0e6ebfcdf",
+        "revCount": 134,
+        "type": "git",
+        "url": "https://github.com/MalpenZibo/ashell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/MalpenZibo/ashell"
+      }
+    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -288,6 +311,24 @@
         "dir": "nix",
         "owner": "kmonad",
         "repo": "kmonad",
+        "type": "github"
+      }
+    },
+    "naersk": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1721727458,
+        "narHash": "sha256-r/xppY958gmZ4oTfLiHN0ZGuQ+RSTijDblVgVLFi1mw=",
+        "owner": "nix-community",
+        "repo": "naersk",
+        "rev": "3fb418eaf352498f6b6c30592e3beb63df42ef11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "naersk",
         "type": "github"
       }
     },
