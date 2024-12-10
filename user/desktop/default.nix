@@ -28,7 +28,7 @@ in {
     gimp
     grim
     imv
-    (iosevka.override { privateBuildPlan = "${./iosevka.toml}"; set = "Arc"; })
+    inputs.fonts.packages.x86_64-linux.iosevka
     libnotify
     mpv
     networkmanagerapplet

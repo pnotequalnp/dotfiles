@@ -16,6 +16,7 @@
     nur.url = "github:nix-community/NUR";
     rust-overlay.url = "github:oxalica/rust-overlay";
     nix-colors.url = "github:misterio77/nix-colors";
+    fonts.url = "github:pnotequalnp/fonts";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
