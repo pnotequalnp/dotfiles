@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -22,14 +22,16 @@
 
   sops.defaultSopsFile = ./secrets.yaml;
 
+  keyboards = [
+    { name = "built-in"; device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd"; }
+    { name = "usb"; device = "/dev/input/by-id/usb-dakai_PS_2+USB_Keyboard-event-kbd"; }
+  ];
+
   services = {
     greetd.settings.initial_session = {
       command = "Hyprland";
       user = "kevin";
     };
-
-    kmonad.keyboards.${config.networking.hostName}.device =
-      "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
 
     btrfs.autoScrub = {
       enable = true;
