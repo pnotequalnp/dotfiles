@@ -87,8 +87,14 @@ in {
       
       dwindle {
         force_split = 2
-        no_gaps_when_only = 1
       }
+
+      workspace = w[tv1], gapsout:0, gapsin:0
+      workspace = f[1], gapsout:0, gapsin:0
+      windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
+      windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
+      windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
+      windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
 
       ${directions}
 
