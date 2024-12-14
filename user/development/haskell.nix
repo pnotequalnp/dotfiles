@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  haskell = pkgs.haskell.packages.ghc98;
+  haskell = pkgs.haskell.packages.ghc910;
   packages = p: with p; [
     adjunctions
     aeson
@@ -12,7 +12,7 @@ let
     constraints
     containers
     contravariant
-    criterion
+    # criterion
     data-fix
     distributive
     exceptions
@@ -51,7 +51,7 @@ let
     fourmolu
     (ghcWithHoogle packages)
     haskell-language-server
-    hlint
+    # hlint
     ghcid
   ];
 
