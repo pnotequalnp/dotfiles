@@ -43,11 +43,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1732800376,
-        "narHash": "sha256-qXRqXkKuR6NKdBszY6Dc32e2JIWX28otii91XeJyf0s=",
+        "lastModified": 1734077669,
+        "narHash": "sha256-QZe67kjyHzJkZFoAOQhntYsHvvuM6L1y2wtGYTwizd4=",
         "ref": "refs/heads/main",
-        "rev": "1a82805c1147dda4784424b350b38d5a2201473f",
-        "revCount": 277,
+        "rev": "31799cb98281428e36f3774b8390315a7a3b9321",
+        "revCount": 284,
         "type": "git",
         "url": "https://github.com/MalpenZibo/ashell"
       },
