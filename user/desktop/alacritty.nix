@@ -7,6 +7,7 @@ in {
     enable = true;
     settings = {
       font = {
+        size = 13;
         offset = {
           x = -1;
         };
