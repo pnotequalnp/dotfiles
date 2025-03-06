@@ -13,8 +13,8 @@ let
     bind = $mod CTRL, ${key}, workspace, ${ws'}
     bind = $mod CTRL SHIFT, ${key}, movetoworkspacesilent, ${ws'}
     
-    bind = $mod ALT, ${builtins.toString n}, focusmonitor, ${builtins.toString n}
-    bind = $mod CTRL ALT, ${builtins.toString n}, movecurrentworkspacetomonitor, ${builtins.toString n}
+    bind = $mod CTRL ALT, ${builtins.toString n}, focusmonitor, ${builtins.toString n}
+    bind = $mod ALT, ${builtins.toString n}, movecurrentworkspacetomonitor, ${builtins.toString n}
   '';
   workspaces = builtins.concatStringsSep "\n" (builtins.genList workspace 10) + ''
     bind = $mod, grave, togglespecialworkspace
@@ -24,9 +24,10 @@ let
     bind = $mod, ${key}, movefocus, ${dir}
     bind = $mod SHIFT, ${key}, movewindow, ${dir}
     bind = $mod CTRL, ${key}, moveintogroup, ${dir}
+    bind = $mod CTRL SHIFT, ${key}, moveoutofgroup, ${dir}
 
     bind = $mod ALT, ${key}, moveactive, ${resize}
-    bind = $mod CTRL SHIFT, ${key}, resizeactive, ${resize}
+    bind = $mod ALT SHIFT, ${key}, resizeactive, ${resize}
   '';
   directions = builtins.concatStringsSep "\n" (builtins.map direction [
     {key = "h"; dir = "l"; resize = "-50 0";}
@@ -37,10 +38,12 @@ let
 in {
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.variables = [ "--all" ];
     extraConfig = ''
       $mod = SUPER
 
       monitor = eDP-1, preferred, auto, 1
+      monitor = HDMI-A-1, preferred, auto-up, 1
 
       general {
         gaps_in = 2
@@ -79,6 +82,12 @@ in {
 
       decoration {
         rounding = 4
+        blur {
+          enabled = false
+        }
+        shadow {
+          enabled = false
+        }
       }
 
       misc {
@@ -99,6 +108,8 @@ in {
       ${directions}
 
       ${workspaces}
+
+      bindm = ALT, mouse:272, movewindow
       
       bind = $mod, backspace, togglefloating
       bind = $mod SHIFT, backspace, centerwindow
