@@ -17,6 +17,7 @@ rec {
       ./development/javascript.nix
       ./development/kotlin.nix
       ./development/haskell.nix
+      ./development/lean.nix
       ./development/nix.nix
       ./development/ocaml.nix
       ./development/rust.nix
