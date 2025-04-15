@@ -43,6 +43,7 @@ in {
     wlr-randr
     yubikey-manager-qt
     yubioath-flutter
+    zulip
   ];
 
   fonts.fontconfig.enable = true;
