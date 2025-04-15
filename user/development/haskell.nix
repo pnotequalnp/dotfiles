@@ -55,6 +55,19 @@ let
     ghcid
   ];
 
+  xdg.configFile."fourmolu.yaml".text = ''
+    indentation: 2
+    comma-style: leading
+    record-brace-space: true
+    indent-wheres: true
+    diff-friendly-import-export: true
+    respectful: true
+    haddock-style: single-line
+    newlines-between-decls: 1
+    single-constraint-parens: never
+    single-deriving-parens: never
+  '';
+
   home.file = {
     ".ghc/ghci.conf".text = ''
       :set +m
