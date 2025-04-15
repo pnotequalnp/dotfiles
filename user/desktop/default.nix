@@ -32,6 +32,7 @@ in {
     libnotify
     mpv
     networkmanagerapplet
+    noto-fonts
     noto-fonts-emoji
     obsidian
     pavucontrol
