@@ -1,0 +1,38 @@
+appLauncherCmd = "wofi -S drun"
+
+[modules]
+left = [ "workspaces" ]
+center = [ "windowTitle" ]
+right = [ "systemInfo", [ "clock", "privacy", "settings" ] ]
+
+[system]
+cpuWarnThreshold = 80
+cpuAlertThreshold = 90
+memWarnThreshold = 80
+memAlertThreshold = 90
+tempWarnThreshold = 70
+tempAlertThreshold = 90
+
+[clock]
+format = "%a %d %b %R"
+
+[settings]
+lockCmd = "loginctl lock-session"
+audioSinksMoreCmd = "pavucontrol -t 3"
+audioSourcesMoreCmd = "pavucontrol -t 4"
+wifiMoreCmd = "nm-connection-editor"
+vpnMoreCmd = "nm-connection-editor"
+bluetoothMoreCmd = "blueman-manager"
+
+[appearance]
+backgroundColor = "#24273a"
+primaryColor = "#c6a0f6"
+secondaryColor = "#1e2030"
+successColor = "#a6da95"
+textColor = "#cad3f5"
+workspaceColors = [ "#c6a0f6", "#a6da95", "#f4dbd6" ]
+
+[appearance.dangerColor]
+base = "#ed8796"
+weak = "#eed49f"
+

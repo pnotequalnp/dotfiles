@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }:
+{ inputs, ... }:
 {
   systemd.user.services = {
     ashell = {
@@ -15,4 +15,6 @@
       Install.WantedBy = ["hyprland-session.target"];
     };
   };
+
+  xdg.configFile."ashell/config.toml".source = ./ashell.toml;
 }
