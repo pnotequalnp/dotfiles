@@ -8,9 +8,9 @@ in {
   home.packages = [
     rust
     pkgs.rust-analyzer
-    pkgs.cargo-asm
+    pkgs.cargo-show-asm
     pkgs.cargo-flamegraph
   ];
 
-  programs.vscode.extensions = [ pkgs.vscode-extensions.rust-lang.rust-analyzer ];
+  programs.vscode.profiles.default.extensions = [ pkgs.vscode-extensions.rust-lang.rust-analyzer ];
 }

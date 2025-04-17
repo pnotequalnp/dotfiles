@@ -7,5 +7,5 @@
     pkgs.valgrind
   ];
 
-  programs.vscode.extensions = [ pkgs.vscode-extensions.ms-vscode.cpptools ];
+  programs.vscode.profiles.default.extensions = [ pkgs.vscode-extensions.ms-vscode.cpptools ];
 }

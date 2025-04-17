@@ -42,7 +42,6 @@ in {
     wdisplays
     wl-clipboard
     wlr-randr
-    yubikey-manager-qt
     yubioath-flutter
     zulip
   ];

@@ -6,7 +6,7 @@
       package = pkgs.firefox-wayland;
 
       profiles.${config.home.username} = {
-        extensions = with nur.repos.rycee.firefox-addons; [
+        extensions.packages = with nur.repos.rycee.firefox-addons; [
           bitwarden
           clearurls
           darkreader
