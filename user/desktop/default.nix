@@ -13,6 +13,7 @@ in {
     ./wofi.nix
     ./dunst.nix
     ./alacritty.nix
+    ./foot.nix
     ./firefox.nix
     ./discord.nix
     ./zathura.nix

@@ -125,7 +125,7 @@ in {
 
       bind = $mod, space, exec, wofi -S drun
 
-      bind = $mod, return, exec, alacritty msg create-window || alacritty
+      bind = $mod, return, exec, foot
       bind = $mod CTRL, return, exec, firefox
 
       bind = $mod CTRL, escape, killactive,
